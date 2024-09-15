@@ -4,6 +4,8 @@ import { set, ref, push, update, child, get } from "firebase/database";
 import { sendEmail } from "./emailer.js";
 import bodyParser from "body-parser";
 
+let app = new express()
+app.use(express.json({limit:'10mb'}));
 
 app.post('/rawJSONView', async (req,res)=>{
 
