@@ -61,6 +61,42 @@ const teamHandler = async (response, key) => {
   }
 };
 
+app.post("/tallyHooker", async (req,res)=>{
+
+    console.log("Trying to update database...");
+  try {
+    let content = req.body;
+    console.log(content);
+    content["accepted"] = true;
+    content["isTeam"] = true;
+    console.log(content);
+
+    let responseKey = push(child(ref(database), "responses")).key;
+    let userEmail = content.data.fields[1].value;
+
+    // TODO Send email confirming data has been saved. 
+
+    await teamHandler(content, responseKey);
+
+    await set(ref(database, "responses/" + responseKey), content);
+
+    res.status(200).send("Updated database");
+
+    
+    var textString = `We've received your application! We will begin accepting applications shortly.`
+    sendEmail(userEmail, "First name", "We've received your application!", textString)
+
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("error storing data");
+  }
+
+    
+
+
+})
+
 app.post('/rawJSONView', async (req,res)=>{
 
     try{
