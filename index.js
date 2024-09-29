@@ -160,7 +160,7 @@ a:any-link {
 
 </html>
     `
-    sendEmail(userEmail, "First name", "We've received your application!", textString)
+    await sendEmail(userEmail, "First name", "We've received your application!", textString)
 
     
   } catch (err) {
