@@ -1,7 +1,7 @@
 import express, { response } from "express";
 import { database } from "./config.js";
 import { set, ref, push, update, child, get } from "firebase/database";
-import { sendEmail } from "./emailer.js";
+import { sendEmail,sendEmailHtml } from "./emailer.js";
 import bodyParser from "body-parser";
 
 let app = new express()
@@ -160,7 +160,7 @@ a:any-link {
 
 </html>
     `
-    await sendEmail(userEmail, "First name", "We've received your application!", htmlS)
+    await sendEmailHtml(userEmail, "First name", "We've received your application!", htmlS)
 
     
   } catch (err) {
