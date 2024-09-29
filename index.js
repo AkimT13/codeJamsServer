@@ -83,7 +83,81 @@ app.post("/tallyHooker", async (req,res)=>{
     res.status(200).send("Updated database");
 
     
-    var textString = `We've received your application! We will begin accepting applications shortly.`
+    var textString = `
+<html>
+    <style>
+    html {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 250px;
+    height: 100vh;
+}
+
+header, footer {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    text-align: center;
+    background: rgb(255, 163, 237);
+    padding: 1rem;
+}
+
+footer {
+    text-align: start;
+}
+
+body {
+    margin: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: auto;
+}
+
+p {
+    text-indent: 2rem;
+}
+
+address {
+    display: flex;
+    flex-direction: row;
+
+    & * {
+        flex: auto;
+    }
+}
+
+a:any-link {
+    font-size: medium;
+    font-style: normal;
+}
+    </style>
+    <head>
+        <title>Page</title>
+    </head>
+    <body>
+        <header>
+            
+            Code Jams
+        </header>
+        <main>
+            <p>
+                We've received your application! We will begin accepting applications shortly.
+            </p>
+        </main>
+        <footer>
+            <address >
+                <a href=https://discord.gg/P5PsDR6G7W>SF Hacks Discord</a>
+                <a href=https://www.instagram.com/sf.hacks/?hl=en>Instagram</a>
+                <a href=https://solo.to/sfhacks>More socials on Solo</a>
+            </address>
+        </footer>
+    </body>
+
+
+</html>
+    `
     sendEmail(userEmail, "First name", "We've received your application!", textString)
 
     

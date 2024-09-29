@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config()
-export async function sendEmail(receipientEmail, fName, subject, textString ) {
+export async function sendEmail(receipientEmail, fName, subject, htmlString ) {
     try {
     
       //Authentication for our sending email.
@@ -23,7 +23,7 @@ export async function sendEmail(receipientEmail, fName, subject, textString ) {
         },
         to: receipientEmail,
         subject: subject,
-        text: textString,
+        html: htmlString,
         
           
         // html: htmlString, // TODO make custom HTML template for each message. It's not neccessary for right now but at some point we should be sending formatted emails for professionalism. 
