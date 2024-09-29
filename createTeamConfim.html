@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Confirmation with Team Code</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fff5d9;
+            margin: 0;
+            padding: 0;
+            color: #16133d;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #16133d;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            color: #edc6fa;
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            text-align: left;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            color: #16133d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content p {
+            margin: 0 0 15px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            background-color: #ffc2e2;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-item:hover {
+            background-color: #edc6fa;
+        }
+
+        .list-item strong {
+            color: #9882ba;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #9882ba;
+            border-top: 1px solid #eee;
+            margin-top: 30px;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #16133d;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #9882ba;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to CodeJames 2024, {{name}}!</h1>
+        </div>
+
+        <div class="content">
+            <h2>Next Steps...</h2>
+            <div class="list-item">
+                <p>Please share your team code with your teammates: <strong>{{code}}</strong></p>
+            </div>
+            <div class="list-item">
+                <p>Sign up on Devpost to complete your registration.</p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://devpost.com" class="cta">Sign Up on Devpost</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for joining CodeJames 2024! We can't wait to see what you'll build.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import Handlebars from "handlebars";
 
 dotenv.config()
 export async function sendEmail(receipientEmail, fName, subject, textString ) {
@@ -16,6 +17,7 @@ export async function sendEmail(receipientEmail, fName, subject, textString ) {
         },
       });
       //The message to be sent.
+      
       const mailOptions = {
         from: {
           name: "SF Hacks Team",
@@ -24,6 +26,7 @@ export async function sendEmail(receipientEmail, fName, subject, textString ) {
         to: receipientEmail,
         subject: subject,
         text: textString,
+        html: ""
         
           
         // html: htmlString, // TODO make custom HTML template for each message. It's not neccessary for right now but at some point we should be sending formatted emails for professionalism. 
@@ -42,6 +45,32 @@ export async function sendEmail(receipientEmail, fName, subject, textString ) {
     } catch (err) {
       console.error("Error", err);
     }
+}
+
+export async function sendEmailWithCode(receipientEmail,data){
+  const transporter = nodemailer.createTransport({
+    host: "mail.privateemail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL_ACCOUNT,// TODO get credentials for email account
+      pass: process.env.EMAIL_PASSWORD_KEY, // TODO get credentials for password.
+    },
+  });
+  //The message to be sent.
+  
+  const mailOptions = {
+    from: {
+      name: "SF Hacks Team",
+      address: process.env.EMAIL_ACCOUNT,
+    },
+    to: receipientEmail,
+    subject: subject,
+    text: textString,
+    html: ""
+
+}
+
 }
 
 
