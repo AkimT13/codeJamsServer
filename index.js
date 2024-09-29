@@ -21,6 +21,8 @@ const teamHandler = async (response, key) => {
 
     // TODO Send email with team ID.
     var textString = `Your team key is:\n${teamKey}\nSend this key to your other teammates so they can join your team.`
+    const emailData = {name:response.data.fields[4] , code: teamKey}
+    
     
 
     sendEmail(userEmail, "First name", "Your application team code", textString)
