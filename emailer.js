@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import Handlebars from "handlebars";
 
 dotenv.config()
-export async function sendEmail(receipientEmail, fName, subject, htmlString ) {
+export async function sendEmail(receipientEmail, fName, subject, textString ) {
     try {
     
       //Authentication for our sending email.
@@ -25,6 +25,7 @@ export async function sendEmail(receipientEmail, fName, subject, htmlString ) {
         },
         to: receipientEmail,
         subject: subject,
+        textString: textString,
         html: htmlString,
         
           
@@ -46,7 +47,7 @@ export async function sendEmail(receipientEmail, fName, subject, htmlString ) {
     }
 }
 
-export async function sendEmailWithCode(receipientEmail,data){
+export async function sendEmailHtml(receipientEmail,fName,subject,htmlString){
   const transporter = nodemailer.createTransport({
     host: "mail.privateemail.com",
     port: 465,
@@ -65,8 +66,8 @@ export async function sendEmailWithCode(receipientEmail,data){
     },
     to: receipientEmail,
     subject: subject,
-    text: textString,
-    html: ""
+    
+    html: htmlString
 
 }
 

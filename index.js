@@ -85,7 +85,7 @@ app.post("/tallyHooker", async (req,res)=>{
     res.status(200).send("Updated database");
 
     
-    var textString = `
+    const htmlS = `
 <html>
     <style>
     html {
@@ -160,7 +160,7 @@ a:any-link {
 
 </html>
     `
-    await sendEmail(userEmail, "First name", "We've received your application!", textString)
+    await sendEmail(userEmail, "First name", "We've received your application!", htmlS)
 
     
   } catch (err) {
