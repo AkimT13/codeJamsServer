@@ -74,7 +74,7 @@ app.post("/tallyHooker", async (req,res)=>{
     console.log(content);
 
     let responseKey = push(child(ref(database), "responses")).key;
-    let userEmail = content.data.fields[1].value;
+    let userEmail = content.data.fields[7].value;
 
     // TODO Send email confirming data has been saved. 
 
