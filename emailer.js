@@ -20,7 +20,7 @@ export async function sendEmailHtml(recipientEmail, subject, templateName, data)
     });
 
     // Read the HTML template file from the project folder
-    const templatePath = path.join(__dirname, `/templates/${templateName}.hbs`);
+    const templatePath = path.join(".", `/templates/${templateName}.hbs`);
     const source = fs.readFileSync(templatePath, 'utf8');
 
     // Compile the Handlebars template
