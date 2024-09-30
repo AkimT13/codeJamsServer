@@ -87,7 +87,7 @@ app.post("/tallyHooker", async (req, res) => {
     };
 
     // Send general confirmation email using Handlebars template
-    await sendEmailHtml(userEmail, "We've received your application!", "generalConfirmationTemplate", emailData);
+    await sendEmailHtml(userEmail, "We've received your application!", "generalConfirmation", emailData);
 
     // Handle team logic (create, join, or neither)
     await teamHandler(content, responseKey);
